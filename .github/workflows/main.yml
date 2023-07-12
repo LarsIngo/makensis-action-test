@@ -37,8 +37,8 @@ jobs:
       uses: joncloud/makensis-action@publish
       with:
         additional-plugin-paths:
-        ${{ github.workspace }}/NSIS_Plugins/Plugins
-        ${{ github.workspace }}/NSIS_Plugins/nsisunz
+        ${{ github.workspace }}/NSIS_Plugins/Plugins/\n
+        ${{ github.workspace }}/NSIS_Plugins/nsisunz/\n
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
