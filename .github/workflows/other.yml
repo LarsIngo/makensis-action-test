@@ -19,6 +19,9 @@ jobs:
     - name: 'Run makensis'
       run: nsis installer.nsi
 
+    - name: 'Run makensis'
+      run: makensis installer.nsi
+
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
