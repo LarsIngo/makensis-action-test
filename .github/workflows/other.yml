@@ -1,0 +1,26 @@
+on: [push]
+
+jobs:
+  create_installer:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: readme.md
+        path: readme.md
+
+    - name: 'Install makensis'
+      run: sudo apt update && sudo apt install nsis
+      
+    - name: 'Run makensis'
+      run: nsis installer.nsi
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: Installer.exe
+        path: Installer.exe
