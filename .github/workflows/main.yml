@@ -36,9 +36,7 @@ jobs:
     - name: Create nsis installer
       uses: joncloud/makensis-action@publish
       with:
-        additional-plugin-paths:
-        ${{ github.workspace }}/NSIS_Plugins/Plugins/\n
-        ${{ github.workspace }}/NSIS_Plugins/nsisunz/\n
+        additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins/\n${{ github.workspace }}/NSIS_Plugins/nsisunz/\n
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
