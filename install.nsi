@@ -43,6 +43,9 @@
 ;Installer Sections     
 Section "install" Installation
  
+  ; Test!
+  nsisunz::UnzipToLog "myzipfile.zip" "$INSTDIR" 
+
   EnVar::Check "NULL" "NULL"
   Pop $0
   DetailPrint "EnVar::Check write access HKCU returned=|$0|"
