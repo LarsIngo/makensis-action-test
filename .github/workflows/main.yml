@@ -17,16 +17,6 @@ jobs:
     - name: Extract EnVar plugin
       run: 7z x -o"${{ github.workspace }}/NSIS_Plugins" "${{ github.workspace }}/envar_plugin.zip"
 
-    - name: Download Nsisunz plugin for NSIS
-      uses: carlosperate/download-file-action@v1.0.3
-      with:
-        file-url: https://nsis.sourceforge.io/mediawiki/images/1/1c/Nsisunz.zip
-        file-name: nsisunz.zip
-        location: ${{ github.workspace }}
-
-    - name: Extract Nsisunz plugin
-      run: 7z x -o"${{ github.workspace }}/NSIS_Plugins" "${{ github.workspace }}/nsisunz.zip"
-
     - name: 'Install makensis (apt)'
       run: sudo apt update && sudo apt install -y nsis nsis-pluginapi
 
@@ -36,7 +26,7 @@ jobs:
     - name: Create nsis installer
       uses: joncloud/makensis-action@publish
       with:
-        additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins/\n${{ github.workspace }}/NSIS_Plugins/nsisunz/\n
+        additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3

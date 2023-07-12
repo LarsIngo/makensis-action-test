@@ -44,7 +44,7 @@
 Section "install" Installation
  
   ; Test!
-  nsisunz::UnzipToLog "myzipfile.zip" "$INSTDIR" 
+  ;nsisunz::UnzipToLog "myzipfile.zip" "$INSTDIR" 
 
   EnVar::Check "NULL" "NULL"
   Pop $0
